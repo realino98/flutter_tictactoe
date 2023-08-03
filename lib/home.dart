@@ -8,17 +8,8 @@ class TicTacToe extends StatefulWidget {
 }
 
 class _TicTacToeState extends State<TicTacToe> {
-  List<String> board = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-  ];
+  // List<String> board = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
+  List<String> board = ["", "", "", "", "", "", "", "", ""];
   bool isPlayerOne = true;
   bool isPlaying = true;
   String curCursor = "X";
@@ -28,9 +19,9 @@ class _TicTacToeState extends State<TicTacToe> {
       appBar: AppBar(
         title: Text("TicTacToe Game"),
       ),
-      body: Container(
-        child: Center(
-          child: Column(
+      body: Row(
+        children: [
+          Column(
             children: [
               Row(
                 children: [
@@ -53,10 +44,11 @@ class _TicTacToeState extends State<TicTacToe> {
                   BoardButton(8, board[8]),
                 ],
               ),
-              Text(isPlaying ? "Game is Still Playing" : "Game Stopped"),
             ],
           ),
-        ),
+          Text(isPlaying ? "Game is Still Playing" : "Game Stopped"),
+          Text(isPlaying ? "" : "Congratulation! Player ${curCursor} Wins!"),
+        ],
       ),
     );
   }
@@ -77,45 +69,10 @@ class _TicTacToeState extends State<TicTacToe> {
                 }
                 isPlayerOne = !isPlayerOne;
                 board[id] = curCursor;
+                isPlaying = gameCheck(board, curCursor, isPlaying);
               }
             },
           );
-
-          //gamecheck
-          //horizontal
-          if ((board[0] == curCursor) &&
-              (board[0] == board[1]) &&
-              (board[0] == board[2])) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          } else if ((board[3] == curCursor) &&
-              board[3] == board[4] &&
-              board[4] == board[5]) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          } else if ((board[6] == curCursor) &&
-              board[6] == board[7] &&
-              board[7] == board[8]) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          }
-          //vertical
-          if ((board[0] == curCursor) &&
-              (board[0] == board[3]) &&
-              (board[3] == board[6])) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          } else if ((board[3] == curCursor) &&
-              board[3] == board[4] &&
-              board[4] == board[5]) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          } else if ((board[6] == curCursor) &&
-              board[6] == board[7] &&
-              board[7] == board[8]) {
-            print("Player ${curCursor} Wins");
-            isPlaying = !isPlaying;
-          }
         },
         child: Container(
           child: Center(
@@ -127,4 +84,55 @@ class _TicTacToeState extends State<TicTacToe> {
       ),
     );
   }
+}
+
+gameCheck(board, curCursor, isPlaying) {
+  //gamecheck
+  //horizontal
+  if ((board[0] == curCursor) &&
+      (board[0] == board[1]) &&
+      (board[0] == board[2])) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  } else if ((board[3] == curCursor) &&
+      board[3] == board[4] &&
+      board[4] == board[5]) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  } else if ((board[6] == curCursor) &&
+      board[6] == board[7] &&
+      board[7] == board[8]) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  }
+  //vertical
+  if ((board[0] == curCursor) &&
+      (board[0] == board[3]) &&
+      (board[3] == board[6])) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  } else if ((board[1] == curCursor) &&
+      board[1] == board[4] &&
+      board[4] == board[7]) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  } else if ((board[2] == curCursor) &&
+      board[2] == board[5] &&
+      board[5] == board[8]) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  }
+  //cross
+  if ((board[0] == curCursor) &&
+      (board[0] == board[4]) &&
+      (board[4] == board[8])) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  } else if ((board[2] == curCursor) &&
+      board[2] == board[4] &&
+      board[4] == board[6]) {
+    print("Player ${curCursor} Wins");
+    isPlaying = !isPlaying;
+  }
+  return isPlaying;
 }
