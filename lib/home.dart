@@ -62,11 +62,6 @@ class _TicTacToeState extends State<TicTacToe> {
             if (board[id] == "" && isPlaying) {
               isPlayerOne = !isPlayerOne;
               curCursor = isPlayerOne ? "X" : "O";
-              // if (isPlayerOne) {
-              //   curCursor = "O";
-              // } else {
-              //   curCursor = "X";
-              // }
               board[id] = curCursor;
               isPlaying = gameCheck(board, curCursor, isPlaying);
             }
@@ -74,11 +69,13 @@ class _TicTacToeState extends State<TicTacToe> {
         );
       },
       child: Container(
-        color: isPlaying ? Colors.black26 : Colors.green[300],
+        color: isPlaying ? Colors.deepPurple[200] : Colors.green[300],
         child: Center(
           child: Text(
             board[id],
-            style: TextStyle(fontSize: 150),
+            style: TextStyle(
+                fontSize: 150,
+                color: board[id] == "O" ? Colors.red : Colors.black),
           ),
         ),
       ),
