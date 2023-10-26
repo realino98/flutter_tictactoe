@@ -1,16 +1,14 @@
-# tictactoe
+# Flutter Tic-Tac-Toe
+This is a Tictactoe game made with flutter
 
-A new Flutter project.
+## Features 
++ Basic Tictactoe game
++ Change Color if player Wins
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+![image](https://github.com/realino98/tictactoe_flutter/assets/63583418/5107b784-360d-4516-845a-75585afbd58c)
 
-A few resources to get you started if this is your first Flutter project:
+![image](https://github.com/realino98/tictactoe_flutter/assets/63583418/58664d5e-223f-4699-998e-ed845f72dd3d)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Thank you, follow for more !
